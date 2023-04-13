@@ -5,6 +5,8 @@
 package Factory;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -12,11 +14,16 @@ import java.sql.Connection;
  */
 public class ConnectionFactory {
 
-    public ConnectionFactory() {
+    public Connection getConnection(){
+      
+        try{
+            return
+        DriverManager.getConnection("jdbc:mysql://localhost/projetojava", "root", "");
+            
+        }
+            catch(SQLException excecao) {
+                throw new RuntimeException(excecao);
+            }
+        
     }
-
-    Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }

@@ -3,44 +3,83 @@ package Modelo;
 
 public class Usuario {
 
-     Long id;
-        String nome, cpf, email, telefone;
-        
-        public String getCpf(){
-            return cpf;
-        }
-        
-                public void setCpf(String cpf){
-                    this.cpf = cpf;
-                }
-        
-        public String getEmail(){
-            return email;
-        }
-        
-                public void setEmail(String email){
-                    this.email = email;
-                }
-            
-        public Long getId(){
-            return id;
-        }
-        
-                public void setNome(String nome){
-                    this.nome = nome;
-                }
-        
-        public String getTelefone(){
-            return telefone;
-        }
-        
-        public void setTelefone(String telefone){
-            this.telefone = telefone;
-        }
+     private Long id;
+        private String nome;
+        private String cpf;
+        private String email;
+        private String telefone;
+       
 
-    public String getNome() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
     }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
                 
     
     }
