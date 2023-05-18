@@ -5,7 +5,7 @@
 package psv;
 import javax.swing.table.*;
 import java.sql.*;
-import java.util.*
+import java.util.*;
 
 /**
  *
@@ -33,7 +33,7 @@ public class frmCarro extends javax.swing.JFrame {
         jColorChooser2 = new javax.swing.JColorChooser();
         jPanel1 = new javax.swing.JPanel();
         label1 = new java.awt.Label();
-        lblPlaca = new javax.swing.JPanel();
+        lblAno = new javax.swing.JPanel();
         label2 = new java.awt.Label();
         lblCor = new java.awt.Label();
         lblDescricao = new java.awt.Label();
@@ -41,6 +41,8 @@ public class frmCarro extends javax.swing.JFrame {
         txtPlaca = new javax.swing.JTextField();
         txtCor = new javax.swing.JTextField();
         txtDescricao = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtAno = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnIncluir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
@@ -51,7 +53,7 @@ public class frmCarro extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblConsulta = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +80,7 @@ public class frmCarro extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        lblPlaca.setBackground(new java.awt.Color(0, 153, 153));
+        lblAno.setBackground(new java.awt.Color(0, 153, 153));
 
         label2.setText("Placa");
 
@@ -88,45 +90,62 @@ public class frmCarro extends javax.swing.JFrame {
 
         lblMensagem.setText("Mensagem");
 
-        javax.swing.GroupLayout lblPlacaLayout = new javax.swing.GroupLayout(lblPlaca);
-        lblPlaca.setLayout(lblPlacaLayout);
-        lblPlacaLayout.setHorizontalGroup(
-            lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblPlacaLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
-                .addGroup(lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                        .addComponent(txtCor))
-                    .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jLabel1.setText("Ano");
+
+        txtAno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAnoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout lblAnoLayout = new javax.swing.GroupLayout(lblAno);
+        lblAno.setLayout(lblAnoLayout);
+        lblAnoLayout.setHorizontalGroup(
+            lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lblAnoLayout.createSequentialGroup()
+                .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(lblAnoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblAnoLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(25, 25, 25)
+                        .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                                .addComponent(txtCor))
+                            .addComponent(txtDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(txtAno))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        lblPlacaLayout.setVerticalGroup(
-            lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblPlacaLayout.createSequentialGroup()
+        lblAnoLayout.setVerticalGroup(
+            lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lblAnoLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(lblPlacaLayout.createSequentialGroup()
-                        .addGroup(lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(lblAnoLayout.createSequentialGroup()
+                        .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(lblPlacaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(lblAnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 204));
@@ -139,6 +158,11 @@ public class frmCarro extends javax.swing.JFrame {
         });
 
         btnAlterar.setText("Alterar");
+        btnAlterar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAlterarMouseClicked(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
 
@@ -198,19 +222,19 @@ public class frmCarro extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "Placa", "Cor", "Descrição", "Ano"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -221,11 +245,12 @@ public class frmCarro extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jScrollPane1.setViewportView(tblConsulta);
+        if (tblConsulta.getColumnModel().getColumnCount() > 0) {
+            tblConsulta.getColumnModel().getColumn(0).setResizable(false);
+            tblConsulta.getColumnModel().getColumn(1).setResizable(false);
+            tblConsulta.getColumnModel().getColumn(2).setResizable(false);
+            tblConsulta.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -252,7 +277,7 @@ public class frmCarro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblAno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -261,7 +286,7 @@ public class frmCarro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -285,6 +310,7 @@ public class frmCarro extends javax.swing.JFrame {
         txtCor.setText(""); 
         txtDescricao.setText(""); 
         lblMensagem.setText(""); 
+        txtAno.setText("");
         DefaultTableModel tbm = 
        (DefaultTableModel)tblConsulta.getModel(); 
         for(int i = tbm.getRowCount()-1; i >= 0; i--){ 
@@ -301,6 +327,7 @@ public class frmCarro extends javax.swing.JFrame {
         cb.setPlaca(txtPlaca.getText()); 
         cb.setCor(txtCor.getText()); 
         cb.setDescricao(txtDescricao.getText()); 
+        cb.setAno(txtAno.getText());
         lblMensagem.setText(cd.inserir(cb)); 
         Conexao.fecharConexao(con);
         
@@ -326,10 +353,31 @@ public class frmCarro extends javax.swing.JFrame {
         tblConsulta.setValueAt(cb.getPlaca(), i, 0); 
         tblConsulta.setValueAt(cb.getCor(), i, 1); 
         tblConsulta.setValueAt(cb.getDescricao(), i, 2); 
+        tblConsulta.setValueAt(cb.getAno(), i, 3);
         i++; 
         } 
         Conexao.fecharConexao(con);
     }//GEN-LAST:event_btnPesquisarMouseClicked
+
+    private void txtAnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnoMouseClicked
+
+    private void btnAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlterarMouseClicked
+        // Botão "Alterar"
+        
+        Connection con = Conexao.abrirConexao(); 
+    CarroBean cb = new CarroBean(); 
+    CarroDAO cd = new CarroDAO(con); 
+    
+        cb.setPlaca(txtPlaca.getText()); 
+        cb.setCor(txtCor.getText());
+        cb.setDescricao(txtDescricao.getText()); 
+        cb.setAno(txtAno.getText());
+ 
+    lblMensagem.setText(cd.alterar(cb)); 
+    Conexao.fecharConexao(con); 
+    }//GEN-LAST:event_btnAlterarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -371,18 +419,20 @@ public class frmCarro extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JColorChooser jColorChooser2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private java.awt.Label label1;
     private java.awt.Label label2;
+    private javax.swing.JPanel lblAno;
     private java.awt.Label lblCor;
     private java.awt.Label lblDescricao;
     private java.awt.Label lblMensagem;
-    private javax.swing.JPanel lblPlaca;
+    private javax.swing.JTable tblConsulta;
+    private javax.swing.JTextField txtAno;
     private javax.swing.JTextField txtCor;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtPlaca;

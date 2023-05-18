@@ -10,11 +10,19 @@ package psv;
  */
 public class CarroBean {
 
-
     private String placa;
     private String cor;
     private String descricao;
-    
+    private String ano;
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
     public String getPlaca() {
         return placa;
     }

@@ -19,6 +19,8 @@ public class Teste {
         carrobean.setPlaca("");
         carrobean.setCor("Amarelo");
         carrobean.setDescricao("Carro 3");
+        carrobean.setAno("2008");
+        
         System.out.println(carrodao.excluir(carrobean));
         
     }
