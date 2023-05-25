@@ -118,10 +118,8 @@
                           </Group>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtPlaca" pref="109" max="32767" attributes="0"/>
-                                  <Component id="txtCor" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="txtPlaca" pref="203" max="32767" attributes="0"/>
+                              <Component id="txtCor" max="32767" attributes="0"/>
                               <Component id="txtDescricao" pref="203" max="32767" attributes="0"/>
                               <Component id="txtAno" alignment="0" max="32767" attributes="0"/>
                           </Group>
