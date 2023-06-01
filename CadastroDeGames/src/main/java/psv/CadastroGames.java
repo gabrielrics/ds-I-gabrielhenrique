@@ -455,7 +455,7 @@ public class CadastroGames extends javax.swing.JFrame {
         cb.setNomeJogo(txtNomeJogo.getText());
         cb.setPersonagem(txtPersonagem.getText());
         cb.setPosicao(txtPosicao.getText());
-        cb.getEmpresaPreferida(txtEmpresa.getText());
+        cb.getEmpresa(txtEmpresa.getText());
         cb.setCompra(txtCompraMensal.getText());
         cb.setVeVideos(txtAssiste.getText());
         cb.setTipoJogo(txtEstiloJogo.getText());
