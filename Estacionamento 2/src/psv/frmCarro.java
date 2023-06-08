@@ -164,6 +164,11 @@ public class frmCarro extends javax.swing.JFrame {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -377,6 +382,10 @@ public class frmCarro extends javax.swing.JFrame {
     lblMensagem.setText(cd.alterar(cb)); 
     Conexao.fecharConexao(con); 
     }//GEN-LAST:event_btnAlterarMouseClicked
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
